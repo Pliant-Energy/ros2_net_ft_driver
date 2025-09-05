@@ -77,7 +77,7 @@
         </geometry>
       </collision>
       <xacro:cylinder_inertial radius="${sensor_radius}" length="${sensor_height}" mass="${sensor_mass}">
-        <xacro:insert_block name="origin" />
+        <origin xyz="0 0 ${sensor_height/2}" rpy="0 0 0"/>
       </xacro:cylinder_inertial>
     </link>
     <joint name="${prefix}tool_side_joint" type="fixed">
