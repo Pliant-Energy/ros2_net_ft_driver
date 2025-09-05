@@ -43,7 +43,7 @@
 
     <xacro:if value="${sensor_type == 'ati_omega'}">
       <xacro:property name="mesh_file" value="ati_omega_ip68_ft_sensor"/>
-      <xacro:property name="sensor_mass" value="0.5"/>
+      <xacro:property name="sensor_mass" value="1.91"/>
       <xacro:property name="sensor_radius" value="0.04635"/>
       <xacro:property name="sensor_height" value="0.03870"/>
     </xacro:if>
