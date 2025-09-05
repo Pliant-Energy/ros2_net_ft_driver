@@ -61,6 +61,8 @@ public:
   AtiFTFactory()
   {
     NetFTInterface::register_type("ati", this);
+    NetFTInterface::register_type("ati_omega", this);
+    NetFTInterface::register_type("ati_omega_pliant", this);
   }
   std::unique_ptr<NetFTInterface> create(const std::string& ip_address)
   {
