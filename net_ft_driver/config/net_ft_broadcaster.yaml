@@ -1,6 +1,7 @@
 controller_manager:
   ros__parameters:
     update_rate: 500  # Hz
+    lock_memory: false
 
     force_torque_sensor_broadcaster:
       type: force_torque_sensor_broadcaster/ForceTorqueSensorBroadcaster
@@ -18,5 +19,5 @@ force_torque_sensor_broadcaster:
       - torque.x
       - torque.y
       - torque.z
-    frame_id: tool0
+    frame_id: tool_mount_link
     topic_name: ft_data

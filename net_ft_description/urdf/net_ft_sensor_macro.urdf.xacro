@@ -41,6 +41,21 @@
       <xacro:property name="sensor_height" value="0.0375"/>
     </xacro:if>
 
+    <xacro:if value="${sensor_type == 'ati_omega'}">
+      <xacro:property name="mesh_file" value="ati_omega85_ip68_ft_sensor"/>
+      <xacro:property name="sensor_mass" value="1.91"/>
+      <xacro:property name="sensor_radius" value="0.04635"/>
+      <xacro:property name="sensor_height" value="0.03870"/>
+    </xacro:if>
+
+    <xacro:if value="${sensor_type == 'ati_omega_pliant'}">
+      <xacro:property name="mesh_file" value="ati_omega85_ip68_ft_sensor_with_clamp"/>
+      <xacro:property name="sensor_mass" value="1.91"/>
+      <xacro:property name="sensor_radius" value="0.04635"/>
+      <xacro:property name="sensor_height" value="0.03870"/>
+    </xacro:if>
+
+
     <joint name="${prefix}fts_joint" type="fixed">
       <!-- The parent link must be read from the robot model it is attached to. -->
       <parent link="${parent}"/>
@@ -62,7 +77,7 @@
         </geometry>
       </collision>
       <xacro:cylinder_inertial radius="${sensor_radius}" length="${sensor_height}" mass="${sensor_mass}">
-        <xacro:insert_block name="origin" />
+        <origin xyz="0 0 ${sensor_height/2}" rpy="0 0 0"/>
       </xacro:cylinder_inertial>
     </link>
     <joint name="${prefix}tool_side_joint" type="fixed">
