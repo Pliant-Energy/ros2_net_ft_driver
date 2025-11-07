@@ -27,7 +27,7 @@ foreach(Dependency IN ITEMS ${THIS_PACKAGE_INCLUDE_DEPENDS})
     find_package(${Dependency} REQUIRED)
   endif()
 endforeach()
-
+link_directories(${CMAKE_INSTALL_PREFIX}/lib) # for curlpp?
 add_library(
   ${PROJECT_NAME}
   SHARED
