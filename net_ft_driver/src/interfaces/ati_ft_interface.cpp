@@ -66,8 +66,10 @@ bool AtiFTInterface::set_bias()
 bool AtiFTInterface::clear_bias()
 {
   std::vector<bool> cum_ret;
-  for (int i = 0; i < 6; i++) {
-    auto ret = set_cgi_variable("setting.cgi", "setbias" + std::to_string(i), std::to_string(0));
+  for (int i = 0; i < 1; i++) {
+    //dirty hack, see https://github.pliantenergy.com/Robotics/mcmray_ros2_prototypes/issues/74#issuecomment-7532
+    std::string othervars = "0&setbias1=0&setbias2=0&setbias3=0&setbias4=0&setbias5=0";
+    auto ret = set_cgi_variable("setting.cgi", "setbias" + std::to_string(i), othervars);
     cum_ret.push_back(ret);
   }
   return std::all_of(cum_ret.begin(), cum_ret.end(), [](bool v) { return v; });
